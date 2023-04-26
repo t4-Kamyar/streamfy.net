@@ -1,0 +1,21 @@
+name: "sample"
+replicaCount: 1
+
+ingressController: nginx
+
+service:
+  type: ClusterIP
+
+domainName: "streamfy.net"
+
+tls:
+  enabled: false
+  secretName: streamfy-net-wildcard-tls
+
+image:
+  repository: "streamfy.{{ .Values.name }}-docs"
+  pullPolicy: Always
+  tag: latest
+
+resources: {}
+tolerations: {}
